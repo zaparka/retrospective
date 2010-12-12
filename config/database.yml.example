@@ -1,0 +1,19 @@
+login: &login
+  adapter: mysql2
+  host: localhost
+  username: retrospective
+
+development:
+  database: retrospective_development
+  <<: *login
+
+test: &test
+  database: retrospective_test
+  <<: *login
+
+production:
+  database: retrospective_production
+  <<: *login
+
+cucumber:
+  <<: *test
