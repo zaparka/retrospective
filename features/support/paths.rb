@@ -10,6 +10,16 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
+    when /the new project page/
+      new_project_path
+
+    when /"([^\"]*)" project page$/
+      project = Project.find_by_name($1)
+      project_path(project)
+
+    when /the edit page for "([^\"]*)" project$/
+      project = Project.find_by_name($1)
+      edit_project_path(project)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
