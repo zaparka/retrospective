@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @iteration.name %>
+</p>
+
+<p>
+  <b>Start:</b>
+  <%= @iteration.start %>
+</p>
+
+<p>
+  <b>End:</b>
+  <%= @iteration.end %>
+</p>
+
+<%= link_to 'Edit', edit_project_iteration_path(@iteration) %> |
+<%= link_to 'Back', project_path(@iteration.project) %>

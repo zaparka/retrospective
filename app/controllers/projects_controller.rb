@@ -6,7 +6,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    respond_with(@project = Project.find(params[:id]))
+    @project = Project.find(params[:id])
+    respond_with(@project, @iterations = @project.iterations)
   end
 
   def new

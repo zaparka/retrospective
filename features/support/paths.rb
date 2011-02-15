@@ -10,12 +10,20 @@ module NavigationHelpers
 
     when /the home\s?page/
       '/'
+
+    when /the new iteration page/
+      new_project_iteration_path(Project.last)
+
     when /the new project page/
       new_project_path
 
     when /"([^\"]*)" project page$/
       project = Project.find_by_name($1)
       project_path(project)
+
+    when /"([^\"]*)" iteration page$/
+      iteration = Iteration.find_by_name($1)
+      project_iteration_path(iteration.project, iteration)
 
     when /the edit page for "([^\"]*)" project$/
       project = Project.find_by_name($1)

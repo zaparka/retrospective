@@ -22,6 +22,13 @@ describe ProjectsController do
       get :show, :id => "37"
       assigns(:project).should be(mock_project)
     end
+
+    it "assigns project's iterations as @iterations" do
+      Project.stub(:find).with("37") { mock_project(:iterations => ['iterations']) }
+      get :show, :id => "37"
+
+      assigns(:iterations).should == ['iterations']
+    end
   end
 
   describe "GET new" do

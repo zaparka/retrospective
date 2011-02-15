@@ -15,4 +15,5 @@ group :development, :test do
   gem 'heroku'
   gem 'rcov'
   gem 'annotate'
+  gem 'chronic'
 end

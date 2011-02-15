@@ -1,0 +1,30 @@
+<%= form_for(@iteration, :url => project_iterations_path) do |f| %>
+  <% if @iteration.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@iteration.errors.count, "error") %> prohibited this iteration from being saved:</h2>
+
+      <ul>
+      <% @iteration.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :start %><br />
+    <%= f.date_select :start %>
+  </div>
+  <div class="field">
+    <%= f.label :end %><br />
+    <%= f.date_select :end %>
+  </div>
+  <div class="actions">
+    <%= f.hidden_field :project_id, :value => @project.id %>
+    <%= f.submit %>
+  </div>
+<% end %>
